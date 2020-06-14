@@ -4,10 +4,13 @@
 
 ## 微信 Schema
 
--   page: https://raw.githubusercontent.com/cwxyz007/mini-program-schema/master/build/wx.page.schema.json
--   component: https://raw.githubusercontent.com/cwxyz007/mini-program-schema/master/build/wx.component.schema.json
+- sitemap: https://raw.githubusercontent.com/cwxyz007/mini-program-schema/master/schema/wx.sitemap.json
+- app: https://raw.githubusercontent.com/cwxyz007/mini-program-schema/master/schema/wx.app.json
+- page: https://raw.githubusercontent.com/cwxyz007/mini-program-schema/master/schema/wx.page.json
+- component: https://raw.githubusercontent.com/cwxyz007/mini-program-schema/schema/build/wx.component.json
 
 ## 阿里 Schema
 
--   page: https://raw.githubusercontent.com/cwxyz007/mini-program-schema/master/build/ali.page.schema.json
--   component: https://raw.githubusercontent.com/cwxyz007/mini-program-schema/master/build/ali.component.schema.json
+- app: https://raw.githubusercontent.com/cwxyz007/mini-program-schema/master/schema/ali.app.json
+- page: https://raw.githubusercontent.com/cwxyz007/mini-program-schema/master/schema/ali.page.json
+- component: https://raw.githubusercontent.com/cwxyz007/mini-program-schema/master/schema/ali.component.json
