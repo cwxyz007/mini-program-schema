@@ -6,15 +6,13 @@
     "author": "chuisi-wangjie <chuisi.wj@raycloud.com>",
     "license": "MIT",
     "scripts": {
-        "ali:component": "typescript-json-schema src/ali.component.d.ts IOption -o build/ali.component.schema.json",
-        "ali:page": "typescript-json-schema src/ali.page.d.ts IOption -o build/ali.page.schema.json",
-        "wx:component": "typescript-json-schema src/wx.component.d.ts IOption -o build/wx.component.schema.json",
-        "wx:page": "typescript-json-schema src/wx.page.d.ts IOption -o build/wx.page.schema.json",
-        "ali": "yarn ali:component && yarn ali:page",
-        "wx": "yarn wx:component && yarn wx:page",
-        "build": "yarn ali:component && yarn ali:page && yarn wx:component && yarn wx:page"
+        "ali": "node script/build.js g ali",
+        "wx": "node script/build.js g wx",
+        "all": "node script/build.js g all"
     },
     "dependencies": {
+        "commander": "^5.1.0",
+        "fast-glob": "^3.2.2",
         "typescript-json-schema": "^0.42.0"
     }
 }
