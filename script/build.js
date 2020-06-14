@@ -6,7 +6,7 @@ const program = require('commander')
 const { configs } = require('./configs')
 
 const resolve = (...args) => path.join(__dirname, '..', ...args)
-const outputDir = resolve('build')
+const outputDir = resolve('schema')
 
 program
   .command('g [name]')
@@ -37,8 +37,8 @@ function generateSchema(dtsPath, type) {
   }
 
   fs.writeFileSync(
-    path.join(outputDir, parsed.name + '.json'),
+    path.join(outputDir, parsed.base.replace('.d.ts', '') + '.json'),
     JSON.stringify(schema, null, 2)
   )
-  console.log(`Generate success: ${parsed.name}`)
+  console.log(`Generate success: ${parsed.base}`)
 }

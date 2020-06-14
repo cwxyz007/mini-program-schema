@@ -2,31 +2,31 @@
   "json.schemas": [
     {
       "fileMatch": ["/test/wx.app.json"],
-      "url": "./build/wx.app.d.json"
+      "url": "./schema/wx.app.json"
     },
     {
       "fileMatch": ["/test/wx.component.json"],
-      "url": "./build/wx.component.d.json"
+      "url": "./schema/wx.component.d.json"
     },
     {
       "fileMatch": ["/test/wx.page.json"],
-      "url": "./build/wx.page.d.json"
+      "url": "./schema/wx.page.json"
     },
     {
       "fileMatch": ["/test/wx.sitemap.json"],
-      "url": "./build/wx.sitemap.d.json"
+      "url": "./schema/wx.sitemap.json"
     },
     {
       "fileMatch": ["/test/ali.app.json"],
-      "url": "./build/ali.app.d.json"
+      "url": "./schema/ali.app.json"
     },
     {
       "fileMatch": ["/test/ali.page.json"],
-      "url": "./build/ali.page.d.json"
+      "url": "./schema/ali.page.json"
     },
     {
       "fileMatch": ["/test/ali.component.json"],
-      "url": "./build/ali.component.d.json"
+      "url": "./schema/ali.component.json"
     }
   ]
 }
