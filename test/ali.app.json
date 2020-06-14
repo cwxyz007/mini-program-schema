@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "page"
+  ],
+  "tabBar": {
+    "backgroundColor": ""
+  },
+  "window": {
+    "enableScrollBar": "NO"
+  }
+}

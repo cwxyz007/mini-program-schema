@@ -9,16 +9,7 @@
       }
     },
     "window": {
-      "$ref": "#/definitions/IWindow",
-      "description": "设置默认页面的窗口表现"
-    },
-    "tabBar": {
-      "$ref": "#/definitions/ITabBar",
-      "description": "设置底部 tabbar 的表现"
-    }
-  },
-  "definitions": {
-    "IWindow": {
+      "description": "设置默认页面的窗口表现",
       "type": "object",
       "properties": {
         "defaultTitle": {
@@ -88,6 +79,12 @@
         }
       }
     },
+    "tabBar": {
+      "$ref": "#/definitions/ITabBar",
+      "description": "设置底部 tabbar 的表现"
+    }
+  },
+  "definitions": {
     "YNBoolean": {
       "enum": [
         "NO",

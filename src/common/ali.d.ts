@@ -2,7 +2,7 @@ import { YNBoolean, HexColor } from './utils'
 
 export namespace Ali {
   export namespace App {
-    export interface IWindow {
+    type IWindow = {
       /**
        * 页面默认标题。
        */

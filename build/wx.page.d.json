@@ -1,4 +1,81 @@
 {
   "type": "object",
+  "properties": {
+    "disableScroll": {
+      "description": "设置为 true 则页面整体不能上下滚动。只在页面配置中有效，无法在 app.json 中设置",
+      "type": "boolean"
+    },
+    "usingComponents": {
+      "description": "页面自定义组件配置",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "style": {
+      "description": "启用新版的组件样式",
+      "type": "string"
+    },
+    "navigationBarBackgroundColor": {
+      "description": "导航栏背景颜色，如 #000000",
+      "type": "string"
+    },
+    "navigationBarTextStyle": {
+      "description": "导航栏标题颜色，仅支持 black / white",
+      "enum": [
+        "black",
+        "white"
+      ],
+      "type": "string"
+    },
+    "navigationBarTitleText": {
+      "description": "导航栏标题文字内容",
+      "type": "string"
+    },
+    "navigationStyle": {
+      "description": "导航栏样式，仅支持以下值：\n- default 默认样式\n- custom 自定义导航栏，只保留右上角胶囊按钮。参见注 2。",
+      "enum": [
+        "custom",
+        "default"
+      ],
+      "type": "string"
+    },
+    "backgroundColor": {
+      "description": "窗口的背景色",
+      "type": "string"
+    },
+    "backgroundTextStyle": {
+      "description": "下拉 loading 的样式，仅支持 dark / light",
+      "enum": [
+        "dark",
+        "light"
+      ],
+      "type": "string"
+    },
+    "backgroundColorTop": {
+      "description": "顶部窗口的背景色，仅 iOS 支持",
+      "type": "string"
+    },
+    "backgroundColorBottom": {
+      "description": "底部窗口的背景色，仅 iOS 支持",
+      "type": "string"
+    },
+    "enablePullDownRefresh": {
+      "description": "是否开启全局的下拉刷新。详见 [Page.onPullDownRefresh](https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onpulldownrefresh)",
+      "type": "boolean"
+    },
+    "onReachBottomDistance": {
+      "description": "页面上拉触底事件触发时距页面底部距离，单位为 px。详见 [Page.onReachBottom](https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onreachbottom)"
+    },
+    "pageOrientation": {
+      "description": "屏幕旋转设置，支持 auto / portrait / landscape详见 [响应显示区域变化](https://developers.weixin.qq.com/miniprogram/dev/framework/view/resizable.html)",
+      "enum": [
+        "auto",
+        "landscape",
+        "portrait"
+      ],
+      "type": "string"
+    }
+  },
   "$schema": "http://json-schema.org/draft-07/schema#"
 }

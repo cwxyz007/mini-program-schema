@@ -1,4 +1,396 @@
 {
   "type": "object",
+  "properties": {
+    "pages": {
+      "description": "页面路径列表",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "window": {
+      "description": "全局的默认窗口表现",
+      "type": "object",
+      "properties": {
+        "navigationBarBackgroundColor": {
+          "description": "导航栏背景颜色，如 #000000",
+          "type": "string"
+        },
+        "navigationBarTextStyle": {
+          "description": "导航栏标题颜色，仅支持 black / white",
+          "enum": [
+            "black",
+            "white"
+          ],
+          "type": "string"
+        },
+        "navigationBarTitleText": {
+          "description": "导航栏标题文字内容",
+          "type": "string"
+        },
+        "navigationStyle": {
+          "description": "导航栏样式，仅支持以下值：\n- default 默认样式\n- custom 自定义导航栏，只保留右上角胶囊按钮。参见注 2。",
+          "enum": [
+            "custom",
+            "default"
+          ],
+          "type": "string"
+        },
+        "backgroundColor": {
+          "description": "窗口的背景色",
+          "type": "string"
+        },
+        "backgroundTextStyle": {
+          "description": "下拉 loading 的样式，仅支持 dark / light",
+          "enum": [
+            "dark",
+            "light"
+          ],
+          "type": "string"
+        },
+        "backgroundColorTop": {
+          "description": "顶部窗口的背景色，仅 iOS 支持",
+          "type": "string"
+        },
+        "backgroundColorBottom": {
+          "description": "底部窗口的背景色，仅 iOS 支持",
+          "type": "string"
+        },
+        "enablePullDownRefresh": {
+          "description": "是否开启全局的下拉刷新。详见 [Page.onPullDownRefresh](https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onpulldownrefresh)",
+          "type": "boolean"
+        },
+        "onReachBottomDistance": {
+          "description": "页面上拉触底事件触发时距页面底部距离，单位为 px。详见 [Page.onReachBottom](https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onreachbottom)"
+        },
+        "pageOrientation": {
+          "description": "屏幕旋转设置，支持 auto / portrait / landscape详见 [响应显示区域变化](https://developers.weixin.qq.com/miniprogram/dev/framework/view/resizable.html)",
+          "enum": [
+            "auto",
+            "landscape",
+            "portrait"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "tabBar": {
+      "$ref": "#/definitions/ITabBar",
+      "description": "底部 tab 栏的表现"
+    },
+    "networkTimeout": {
+      "$ref": "#/definitions/INetworkTimeout",
+      "description": "网络超时时间"
+    },
+    "debug": {
+      "description": "是否开启 debug 模式，默认关闭",
+      "type": "boolean"
+    },
+    "functionalPage": {
+      "description": "是否启用插件功能页，默认关闭",
+      "type": "boolean"
+    },
+    "subpackages": {
+      "description": "分包结构配置",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ISubPackage"
+      }
+    },
+    "workers": {
+      "description": "Worker 代码放置的目录",
+      "type": "string"
+    },
+    "requiredBackgroundModes": {
+      "description": "需要在后台使用的能力，如「音乐播放」",
+      "type": "array",
+      "items": {
+        "enum": [
+          "audio",
+          "location"
+        ],
+        "type": "string"
+      }
+    },
+    "plugins": {
+      "$ref": "#/definitions/IPlugin",
+      "description": "使用到的插件"
+    },
+    "preloadRule": {
+      "$ref": "#/definitions/IPreloadRule",
+      "description": "分包预下载规则"
+    },
+    "resizable": {
+      "description": "PC 小程序是否支持用户任意改变窗口大小（包括最大化窗口）；iPad 小程序是否支持屏幕旋转。默认关闭",
+      "type": "boolean"
+    },
+    "usingComponents": {
+      "description": "全局自定义组件配置",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "permission": {
+      "$ref": "#/definitions/Record<IPermissionScopes,IPermissionObject>",
+      "description": "小程序接口权限相关设置"
+    },
+    "sitemapLocation": {
+      "description": "指明 sitemap.json 的位置",
+      "type": "string"
+    },
+    "style": {
+      "description": "指定使用升级后的weui样式",
+      "type": "string"
+    },
+    "useExtendedLib": {
+      "$ref": "#/definitions/IUseExtendedLib",
+      "description": "指定需要引用的扩展库"
+    },
+    "entranceDeclare": {
+      "$ref": "#/definitions/IEntranceDeclare",
+      "description": "微信消息用小程序打开"
+    },
+    "darkmode": {
+      "description": "小程序支持 DarkMode",
+      "type": "boolean"
+    },
+    "themeLocation": {
+      "description": "指明 theme.json 的位置，darkmode为true为必填",
+      "type": "string"
+    },
+    "lazyCodeLoading": {
+      "description": "配置自定义组件代码按需注入",
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "ITabBar": {
+      "type": "object",
+      "properties": {
+        "color": {
+          "description": "tab 上的文字默认颜色，仅支持十六进制颜色",
+          "type": "string"
+        },
+        "selectedColor": {
+          "description": "tab 上的文字选中时的颜色，仅支持十六进制颜色",
+          "type": "string"
+        },
+        "backgroundColor": {
+          "description": "tab 的背景色，仅支持十六进制颜色",
+          "type": "string"
+        },
+        "borderStyle": {
+          "description": "tabbar 上边框的颜色， 仅支持 black / white",
+          "enum": [
+            "black",
+            "white"
+          ],
+          "type": "string"
+        },
+        "list": {
+          "description": "tab 的列表，详见 list 属性说明，最少 2 个、最多 5 个 tab",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITabBarListItem"
+          }
+        },
+        "position": {
+          "description": "tabBar 的位置，仅支持 bottom / top",
+          "enum": [
+            "bottom",
+            "top"
+          ],
+          "type": "string"
+        },
+        "custom": {
+          "description": "自定义 tabBar，见[详情](https://developers.weixin.qq.com/miniprogram/dev/framework/ability/custom-tabbar.html)",
+          "type": "boolean"
+        }
+      }
+    },
+    "ITabBarListItem": {
+      "type": "object",
+      "properties": {
+        "pagePath": {
+          "description": "页面路径，必须在 pages 中先定义",
+          "type": "string"
+        },
+        "text": {
+          "description": "tab 上按钮文字",
+          "type": "string"
+        },
+        "iconPath": {
+          "description": "图片路径，icon 大小限制为 40kb，建议尺寸为 81px * 81px，不支持网络图片。当 position 为 top 时，不显示 icon。",
+          "type": "string"
+        },
+        "selectedIconPath": {
+          "description": "选中时的图片路径，icon 大小限制为 40kb，建议尺寸为 81px * 81px，不支持网络图片。当 position 为 top 时，不显示 icon。",
+          "type": "string"
+        }
+      }
+    },
+    "INetworkTimeout": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "description": "[wx.request](https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html) 的超时时间，单位：毫秒。",
+          "type": "number"
+        },
+        "connectSocket": {
+          "description": "[wx.connectSocket](https://developers.weixin.qq.com/miniprogram/dev/api/network/websocket/wx.connectSocket.html) 的超时时间，单位：毫秒。",
+          "type": "number"
+        },
+        "uploadFile": {
+          "description": "[wx.uploadFile](https://developers.weixin.qq.com/miniprogram/dev/api/network/upload/wx.uploadFile.html) 的超时时间，单位：毫秒。",
+          "type": "number"
+        },
+        "downloadFile": {
+          "description": "[wx.downloadFile](https://developers.weixin.qq.com/miniprogram/dev/api/network/download/wx.downloadFile.html) 的超时时间，单位：毫秒。",
+          "type": "number"
+        }
+      }
+    },
+    "ISubPackage": {
+      "type": "object",
+      "properties": {
+        "root": {
+          "description": "分包根目录",
+          "type": "string"
+        },
+        "name": {
+          "description": "分包别名，分包预下载时可以使用",
+          "type": "string"
+        },
+        "pages": {
+          "description": "分包页面路径，相对与分包根目录",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "independent": {
+          "description": "分包是否是独立分包",
+          "type": "boolean"
+        }
+      }
+    },
+    "IPlugin": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string"
+          },
+          "provider": {
+            "type": "string"
+          },
+          "export": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "IPreloadRule": {
+      "description": "preloadRule 中，key 是页面路径，value 是进入此页面的预下载配置",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "packages": {
+            "description": "进入页面后预下载分包的 root 或 name。__APP__ 表示主包。",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "network": {
+            "description": "在指定网络下预下载，可选值为：\n- all: 不限网络\n- wifi: 仅wifi下预下载",
+            "enum": [
+              "all",
+              "wifi"
+            ],
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Record<IPermissionScopes,IPermissionObject>": {
+      "type": "object",
+      "properties": {
+        "scope.userInfo": {
+          "$ref": "#/definitions/IPermissionObject"
+        },
+        "scope.userLocation": {
+          "$ref": "#/definitions/IPermissionObject"
+        },
+        "scope.userLocationBackground": {
+          "$ref": "#/definitions/IPermissionObject"
+        },
+        "scope.address": {
+          "$ref": "#/definitions/IPermissionObject"
+        },
+        "scope.invoiceTitle": {
+          "$ref": "#/definitions/IPermissionObject"
+        },
+        "scope.invoice": {
+          "$ref": "#/definitions/IPermissionObject"
+        },
+        "scope.werun": {
+          "$ref": "#/definitions/IPermissionObject"
+        },
+        "scope.record": {
+          "$ref": "#/definitions/IPermissionObject"
+        },
+        "scope.writePhotosAlbum": {
+          "$ref": "#/definitions/IPermissionObject"
+        },
+        "scope.camera": {
+          "$ref": "#/definitions/IPermissionObject"
+        }
+      }
+    },
+    "IPermissionObject": {
+      "type": "object",
+      "properties": {
+        "desc": {
+          "description": "小程序获取权限时展示的接口用途说明。最长 30 个字符",
+          "type": "string"
+        }
+      }
+    },
+    "IUseExtendedLib": {
+      "description": "指定需要引用的扩展库。目前支持以下项目：\n\n- kbone: 多端开发框架\n- weui: WeUI 组件库\n\n指定后，相当于引入了对应扩展库相关的最新版本的 npm 包，同时也不占用小程序的包体积。目前暂不支持在分包中引用。",
+      "type": "object",
+      "properties": {
+        "kbone": {
+          "type": "boolean"
+        },
+        "weui": {
+          "type": "boolean"
+        }
+      }
+    },
+    "IEntranceDeclare": {
+      "type": "object",
+      "properties": {
+        "locationMessage": {
+          "description": "声明“位置消息”场景进入小程序的启动页面",
+          "type": "object",
+          "properties": {
+            "path": {
+              "description": "启动页路径，必须是在pages中已经定义",
+              "type": "string"
+            },
+            "query": {
+              "description": "启动页参数",
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
   "$schema": "http://json-schema.org/draft-07/schema#"
 }

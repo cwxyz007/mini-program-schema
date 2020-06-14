@@ -1,0 +1,33 @@
+{
+  "tabBar": {
+    "backgroundColor": ""
+  },
+  "entranceDeclare": {
+    "locationMessage": {
+      "path": ""
+    }
+  },
+  "window": {
+    "backgroundColor": ""
+  },
+  "style": "",
+  "resizable": false,
+  "lazyCodeLoading": "",
+  "networkTimeout": {
+    "connectSocket": 0,
+    "downloadFile": 0
+  },
+  "pages": [
+    "s"
+  ],
+  "usingComponents": {
+    "sdf": "cj"
+  },
+  "darkmode": false,
+  "debug": false,
+  "permission": {
+    "scope.address": {
+      "desc": ""
+    }
+  }
+}

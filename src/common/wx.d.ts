@@ -1,8 +1,8 @@
-import { YNBoolean, HexColor } from './utils'
+import { HexColor } from './utils'
 
 export namespace Wx {
   export namespace App {
-    interface IWindow {
+    type IWindow = {
       /**
        * 导航栏背景颜色，如 #000000
        */
@@ -58,7 +58,7 @@ export namespace Wx {
     /**
      * 声明依赖的自定义组件所在路径： 项目绝对路径以 “/” 开头，相对路径以 “./” 或者 “../” 开头
      */
-    interface IUsingComponent {
+    type IUsingComponent = {
       [key: string]: string
     }
   }

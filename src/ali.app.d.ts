@@ -1,4 +1,4 @@
-import { YNBoolean, HexColor, Ali } from './common'
+import { HexColor, Ali } from './common'
 
 export type IOption = IApp
 

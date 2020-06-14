@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "rules": {
+      "description": "索引规则列表",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/IRule"
+      }
+    }
+  },
+  "definitions": {
+    "IRule": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "description": "命中该规则的页面是否能被索引",
+          "enum": [
+            "allow",
+            "disallow"
+          ],
+          "type": "string"
+        },
+        "page": {
+          "description": "`*` 表示所有页面，不能作为通配符使用",
+          "type": "string"
+        },
+        "params": {
+          "description": "当 page 字段指定的页面在被本规则匹配时可能使用的页面参数名称的列表（不含参数值）",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "matching": {
+          "description": "当 page 字段指定的页面在被本规则匹配时，此参数说明 params 匹配方式",
+          "enum": [
+            "exact",
+            "exclusive",
+            "inclusive",
+            "partial"
+          ],
+          "type": "string"
+        },
+        "priority": {
+          "description": "优先级，值越大则规则越早被匹配，否则默认从上到下匹配",
+          "type": "number"
+        }
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
