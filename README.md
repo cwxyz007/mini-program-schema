@@ -7,7 +7,7 @@
 - sitemap: https://raw.githubusercontent.com/cwxyz007/mini-program-schema/master/schema/wx.sitemap.json
 - app: https://raw.githubusercontent.com/cwxyz007/mini-program-schema/master/schema/wx.app.json
 - page: https://raw.githubusercontent.com/cwxyz007/mini-program-schema/master/schema/wx.page.json
-- component: https://raw.githubusercontent.com/cwxyz007/mini-program-schema/schema/build/wx.component.json
+- component: https://raw.githubusercontent.com/cwxyz007/mini-program-schema/master/schema/wx.component.json
 
 ## 阿里 Schema
 
