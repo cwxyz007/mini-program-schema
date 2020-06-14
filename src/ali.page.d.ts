@@ -1,8 +1,8 @@
-import { IWindow } from './ali.app'
+import { Ali } from './common'
 
 export type IOption = IPage
 
-export interface IPage extends IWindow {
+export interface IPage extends Ali.App.IWindow {
   /**
    * 设置导航栏点击穿透，取值（"YES"，"NO"）
    */
