@@ -1,6 +1,6 @@
-# mini-program-schema (WIP)
+# mini-program-schema
 
-淘宝/阿里 小程序 json schema
+微信/阿里 小程序 json schema
 
 ## 微信 Schema
 
