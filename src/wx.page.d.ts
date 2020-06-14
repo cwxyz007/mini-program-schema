@@ -1,1 +1,3 @@
-export interface IOption {}
+export type IOption = IPage
+
+export interface IPage {}

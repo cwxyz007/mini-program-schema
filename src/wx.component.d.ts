@@ -1,1 +1,3 @@
-export interface IOption {}
+export type IOption = IComponent
+
+export interface IComponent {}
