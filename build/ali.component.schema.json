@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "component": {
+            "description": "声明是自定义组件",
+            "enum": [
+                true
+            ],
+            "type": "boolean"
+        },
+        "usingComponents": {
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "声明依赖的自定义组件所在路径： 项目绝对路径以 “/” 开头，相对路径以 “./” 或者 “../” 开头",
+            "type": "object"
+        }
+    },
+    "type": "object"
+}
+
